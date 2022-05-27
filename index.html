@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        body {
+            height:100%;
+            width:100%;
+            background-image: url(5.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        html{
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden
+        }
+        blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th, ul {
+            padding: 0;
+            margin-bottom: 15px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        .auth_logo img {
+            height: 87px;
+            margin-left: 8%;
+            margin-top: 18px;
+        }
+        .link_wrap a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 7px;
+            margin-top:22px;
+        }
+        .container .time {
+            position: fixed;
+            font-size: 30px;
+            color: rgb(99, 167, 239);
+            font-weight: 600;
+            width: 230px;
+            left: 50%;
+            margin-left: -99px;
+            top: 28.5%;
+        }
+
+        .container .name {
+            font-size: 20px;
+            font-weight: 600;
+            width: 140px;
+            position: fixed;
+            color: white;
+            left: 91.5px;
+            top: 25px;
+            border: none;
+            background-color: transparent;
+        }
+
+        .container .location {
+            position: fixed;
+            font-size: 17px;
+            font-weight: 600;
+            color: rgb(74, 201, 94);
+            width: 220px;
+            left: 38%;
+            margin-left: -55px;
+            top: 70.5%;
+            border: none;
+            background-color: transparent;
+        }
+
+        .name::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: white;
+        }
+
+        .name:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: white;
+        }
+
+        .name::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: white;
+        }
+
+        .name:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: white;
+        }
+
+        .location::-webkit-input-placeholder {
+            /* WebKit browsers */
+            /*color: rgb(172, 172, 172);*/
+            color: rgb(73, 201, 93);
+        }
+
+        .location:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: rgb(73, 201, 93);
+        }
+
+        .location::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: rgb(73, 201, 93);
+        }
+
+        .location:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: rgb(73, 201, 93);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <label class="name">黄嘉璐【学生】 </label>
+    <label class="location">门岗-本部3号门（进门码）</label>
+    <span class="time"></span>
+</div> 
+<script>
+    let time = document.querySelector('.time');
+    setInterval(gettime, 1000);
+    function gettime() {
+        let today = new Date();
+        let y = today.getFullYear();
+        let m = today.getMonth();
+        let d = today.getDate();
+        let h = today.getHours();
+        let i = today.getMinutes();
+        m = m + 1;
+        d = checkTime(d);
+        m = checkTime(m);
+        i = checkTime(i);
+        time.innerHTML =  m + "月" + d + "日" + "  " + " "+ h + ":" + i;
+    }
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+</body>
+</html>
